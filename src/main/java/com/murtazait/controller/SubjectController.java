@@ -46,7 +46,7 @@ public class SubjectController {
 		return subRepo.save(subject);
 	}
 
-	@PutMapping("/{studentId}/teacher/{teacherId}")
+	@PutMapping("/{subjectId}/teacher/{teacherId}")
 	public Subject assignedTeacher(@PathVariable Long subjectId, @PathVariable Long teacherId) {
 		Subject subject = subRepo.findById(teacherId).get();
 		Teacher teacher = techRepo.findById(teacherId).get();

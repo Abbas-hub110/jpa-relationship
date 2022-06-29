@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,12 +17,12 @@ import lombok.Data;
 @Entity
 //@Data
 public class Student {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	private String name;
-	
+
 	@JsonIgnore
 	@ManyToMany(mappedBy = "enrolledStudents")
 	private Set<Subject> subjects = new HashSet<Subject>();
@@ -49,6 +50,5 @@ public class Student {
 	public void setSubjects(Set<Subject> subjects) {
 		this.subjects = subjects;
 	}
-	
-	
+
 }
